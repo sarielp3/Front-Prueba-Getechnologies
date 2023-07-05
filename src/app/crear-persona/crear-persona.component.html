@@ -1,0 +1,27 @@
+<div class="contenedor">
+    <form [formGroup]="altaForm" (ngSubmit)="onSubmit()">
+        <h1>Dar de alta persona</h1>
+        <mat-form-field>
+            <mat-label>Nombre</mat-label>
+            <input formControlName="nombre" placeholder="Ej. Victor" matInput>
+          </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Apellido Paterno</mat-label>
+            <input formControlName="apepat" placeholder="Ej. Acosta" matInput>
+          </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Apellido Materno</mat-label>
+            <input formControlName="apemat" placeholder="Ej. Hernandez" matInput>
+          </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Identificacion</mat-label>
+            <input formControlName="identificacion" placeholder="Ej. U18273" matInput>
+          </mat-form-field>
+        
+          <button mat-raised-button color="primary" type="submit" [disabled]="!altaForm.valid">Agregar</button>
+    </form>
+   
+</div>

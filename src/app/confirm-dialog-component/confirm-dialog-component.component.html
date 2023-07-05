@@ -1,0 +1,19 @@
+<div *ngIf="eliminarOHabilitar">
+    <h1 mat-dialog-title>Eliminar Registro</h1>
+    <div mat-dialog-content>
+      ¿Estas seguro que deseas eliminar este registro?.
+      Se borrara toda la informacion relacionada.
+    </div>
+  </div>
+  <div *ngIf="!eliminarOHabilitar">
+    <h1 mat-dialog-title>Registro existente</h1>
+    <div mat-dialog-content>
+      Ya hay una persona con el identificador ingresado, intenta con otro!
+    </div>
+  </div>
+  
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close (click)="close(false)">No</button>
+    <button mat-button mat-dialog-close cdkFocusInitial (click)="close(true)">Aceptar</button>
+  </div>
+  

@@ -1,0 +1,34 @@
+<div class="contenedor">
+    <form [formGroup]="altaForm" (ngSubmit)="onSubmit()">
+        <h1>Agregar Factura</h1>
+
+        <mat-form-field class="example-form-field">
+            <mat-label>Fecha</mat-label>
+            <input onkeydown="return false" formControlName="fecha" placeholder="Ej. 10/11/2023" matInput [matDatepicker]="datepicker">
+            <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+            <mat-datepicker #datepicker>
+              <mat-datepicker-actions>
+                <button mat-button matDatepickerCancel>Cancelar</button>
+                <button mat-raised-button color="primary" matDatepickerApply>Aplicar</button>
+              </mat-datepicker-actions>
+            </mat-datepicker>
+          </mat-form-field>
+        
+          <mat-form-field floatLabel="always">
+            <mat-label>Monto</mat-label>
+            <input formControlName="monto" matInput type="number" placeholder="0"
+            onkeypress="return (event.charCode == 209 || event.charCode == 241 || (event.charCode >= 48 && event.charCode <= 57))"
+            >
+            <span matTextPrefix>$&nbsp;</span>
+            <span matTextSuffix>.00</span>
+          </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Identificacion de Persona</mat-label>
+            <input formControlName="ide" placeholder="Ej. U87292" matInput>
+          </mat-form-field>
+        
+          <button mat-raised-button color="primary" type="submit" [disabled]="!altaForm.valid">Agregar</button>
+    </form>
+   
+</div>

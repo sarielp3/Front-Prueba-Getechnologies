@@ -1,0 +1,27 @@
+<div class="container">
+    
+        <table mat-table [dataSource]="dataSource" #tabla1 >
+            <ng-container matColumnDef="fecha">
+                <th mat-header-cell *matHeaderCellDef > Fecha </th>
+                <td mat-cell *matCellDef="let listFacturas"> {{listFacturas.fecha | date: 'dd/MM/yyyy'}} </td>
+            </ng-container>
+            <ng-container matColumnDef="monto">
+                <th mat-header-cell *matHeaderCellDef> Monto </th>
+                <td mat-cell *matCellDef="let listFacturas"> ${{listFacturas.monto}}.00 </td>
+            </ng-container>
+            <ng-container matColumnDef="ide">
+                <th mat-header-cell *matHeaderCellDef> Identificacion de Persona </th>
+                <td mat-cell *matCellDef="let listFacturas"> {{listFacturas.idPersona}} </td>
+            </ng-container>
+            
+     <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+          </table>
+          <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+    
+      <div class="d-flex justify-content-center">
+        <div *ngIf="loading" class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+</div>
